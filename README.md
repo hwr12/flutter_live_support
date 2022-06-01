@@ -3,7 +3,7 @@
 Flutter package to implement a fire store chat between customer and product support
 
 [![platform](https://img.shields.io/badge/Platform-Flutter-blue.svg)](https://flutter.dev/)
-[![pub](https://img.shields.io/pub/v/flutter_support_chat.svg)](https://pub.dev/packages/flutter_live_support)
+[![pub](https://img.shields.io/pub/v/flutter_live_support.svg)](https://pub.dev/packages/flutter_live_support)
 
 ```
 FlutterSupportChat(
