@@ -6,6 +6,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_support_chat/src/text_message.dart';
+
 import 'chat_header.dart';
 import 'model/chat.dart';
 import 'send_message.dart';
@@ -52,19 +53,25 @@ class FlutterSupportChatConversation extends StatefulWidget {
   /// With this for example you can send a push notification
   final Function() onNewMessageCreated;
 
-  const FlutterSupportChatConversation({
-    Key? key,
-    required this.id,
-    required this.back,
-    required this.supporterID,
-    required this.currentID,
-    required this.firestoreInstance,
-    required this.onNewCaseText,
-    required this.createCaseButtonText,
-    required this.writeMessageText,
-    required this.closeCaseText,
-    required this.onNewMessageCreated,
-  }) : super(key: key);
+  final Color? senderColor;
+
+  final Color? recievercolor;
+
+  const FlutterSupportChatConversation(
+      {Key? key,
+      required this.id,
+      required this.back,
+      required this.supporterID,
+      required this.currentID,
+      required this.firestoreInstance,
+      required this.onNewCaseText,
+      required this.createCaseButtonText,
+      required this.writeMessageText,
+      required this.closeCaseText,
+      required this.onNewMessageCreated,
+      this.senderColor,
+      this.recievercolor})
+      : super(key: key);
   @override
   _FlutterSupportChatConversationState createState() =>
       _FlutterSupportChatConversationState();
@@ -122,6 +129,8 @@ class _FlutterSupportChatConversationState
                       return TextMessage(
                         data.messages[index],
                         currentID: widget.currentID,
+                        senderColor: widget.senderColor,
+                        recieverColor: widget.recievercolor,
                       );
                     },
                   ),

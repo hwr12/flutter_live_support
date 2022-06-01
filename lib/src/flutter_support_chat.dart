@@ -3,6 +3,7 @@ library flutter_support_chat;
 // Flutter imports:
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+
 import 'conversation.dart';
 import 'overview.dart';
 
@@ -70,18 +71,24 @@ class FlutterSupportChat extends StatefulWidget {
   /// With this for example you can send a push notification
   final Function()? onNewMessageCreated;
 
-  const FlutterSupportChat({
-    Key? key,
-    required this.supporterID,
-    required this.currentID,
-    required this.firestoreInstance,
-    required this.onNewCaseText,
-    this.createCaseButtonText = 'Create Support Case',
-    this.writeMessageText = 'Write a message...',
-    this.closeCaseText = "Do you really want to close this case?",
-    this.onNewCaseCreated,
-    this.onNewMessageCreated,
-  }) : super(key: key);
+  final Color? senderColor;
+
+  final Color? recieverColor;
+
+  const FlutterSupportChat(
+      {Key? key,
+      required this.supporterID,
+      required this.currentID,
+      required this.firestoreInstance,
+      required this.onNewCaseText,
+      this.createCaseButtonText = 'Create Support Case',
+      this.writeMessageText = 'Write a message...',
+      this.closeCaseText = "Do you really want to close this case?",
+      this.onNewCaseCreated,
+      this.onNewMessageCreated,
+      this.senderColor,
+      this.recieverColor})
+      : super(key: key);
   @override
   _FlutterSupportChatState createState() => _FlutterSupportChatState();
 }
@@ -108,6 +115,8 @@ class _FlutterSupportChatState extends State<FlutterSupportChat> {
               closeCaseText: widget.closeCaseText,
               writeMessageText: widget.writeMessageText,
               onNewMessageCreated: widget.onNewMessageCreated ?? () {},
+              senderColor: widget.senderColor,
+              recievercolor: widget.recieverColor,
             )
           : FlutterSupportChatOverview(
               selectCase: (id) {

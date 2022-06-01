@@ -7,11 +7,16 @@ class TextMessage extends StatelessWidget {
   /// `currentID` is a required ID.
   /// Id can be Email or FirebaseUsersId
   /// Cases are visible based on this ID, comments are made for this id.
+  /// sender Color and reciever color are optional.
   final String currentID;
+  final Color? senderColor;
+  final Color? recieverColor;
   const TextMessage(
     this.message, {
     Key? key,
     required this.currentID,
+    this.senderColor = Colors.red,
+    this.recieverColor = Colors.blueGrey,
   }) : super(key: key);
   bool isSender(SupportChatMessage message) => message.sender == currentID;
   @override
@@ -48,7 +53,7 @@ class TextMessage extends StatelessWidget {
                   ),
                   bottomRight: Radius.circular(20),
                 ),
-                color: isSender(message) ? Colors.red : Colors.blueGrey,
+                color: isSender(message) ? senderColor : recieverColor,
               ),
               padding: EdgeInsets.all(16),
               child: Text(
