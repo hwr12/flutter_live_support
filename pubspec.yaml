@@ -15,8 +15,6 @@ dependencies:
   firebase_core: '>=1.2.0 <2.0.0'
   flutter:
     sdk: flutter
-  flutter_support_chat:
-    sdk: flutter
 
 dev_dependencies:
   flutter_test:

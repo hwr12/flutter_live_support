@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_support_chat/src/model/message.dart';
+import 'package:flutter_live_support/src/model/message.dart';
 
 class TextMessage extends StatelessWidget {
   final SupportChatMessage message;

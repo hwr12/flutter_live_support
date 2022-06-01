@@ -5,7 +5,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_support_chat/src/text_message.dart';
+import 'package:flutter_live_support/src/text_message.dart';
 
 import 'chat_header.dart';
 import 'model/chat.dart';

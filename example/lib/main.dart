@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 // Package imports:
-import 'package:flutter_support_chat/flutter_support_chat.dart';
+import 'package:flutter_live_support/flutter_live_support.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
