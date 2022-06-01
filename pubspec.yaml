@@ -1,6 +1,6 @@
 name: flutter_live_support
 description: Flutter package to implement a firestore chat between customer and
-  product support. This is a forked project from https://github.com/hwr12/flutter_live_support .
+  product support.
 version: 1.0.0+1
 homepage: https://github.com/hwr12/flutter_live_support
 repository: https://github.com/hwr12/flutter_live_support
