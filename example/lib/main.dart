@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("flutter_fb_news example"),
+          title: Text("flutter_live_support_example"),
         ),
         body: FlutterSupportChat(
           supporterID: [
