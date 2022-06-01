@@ -8,7 +8,7 @@ Flutter package to implement a fire store chat between customer and product supp
 ```
 FlutterSupportChat(
     supporterEmails: [
-        'cedtegapps.de@gmail.com',
+        'example@gmail.com',
     ],
     currentEmail: user.email!,
     firestoreInstance: FirebaseFirestore.instance,
