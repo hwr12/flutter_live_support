@@ -8,6 +8,7 @@ import 'package:flutter_live_support/flutter_live_support.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
   runApp(MyApp());
 }
 
@@ -44,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
           writeMessageText: "Write a Message",
           senderColor: Colors.blue,
           recieverColor: Colors.grey,
+          locale: 'kr_KO',
         ));
   }
 }

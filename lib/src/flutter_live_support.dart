@@ -3,6 +3,7 @@ library flutter_support_chat;
 // Flutter imports:
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'conversation.dart';
 import 'overview.dart';
@@ -75,6 +76,8 @@ class FlutterSupportChat extends StatefulWidget {
 
   final Color? recieverColor;
 
+  final String? locale;
+
   const FlutterSupportChat(
       {Key? key,
       required this.supporterID,
@@ -87,7 +90,8 @@ class FlutterSupportChat extends StatefulWidget {
       this.onNewCaseCreated,
       this.onNewMessageCreated,
       this.senderColor,
-      this.recieverColor})
+      this.recieverColor,
+      this.locale})
       : super(key: key);
   @override
   _FlutterSupportChatState createState() => _FlutterSupportChatState();
@@ -97,6 +101,7 @@ class _FlutterSupportChatState extends State<FlutterSupportChat> {
   String? caseId;
   @override
   Widget build(BuildContext context) {
+    Intl.defaultLocale = widget.locale;
     instance = widget.firestoreInstance;
     return Container(
       child: caseId != null

@@ -1,3 +1,7 @@
+## [1.0.0+2] - 2022.05.13
+* bug fixes
+## [1.0.0+1] - 2022.05.13
+* bug fixes
 ## [1.0.0-alpha.0] - 2022.05.13
 * rewrite plugin
 * Bracking changes

@@ -47,60 +47,80 @@ class FlutterSupportChatHeaderButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            IconButton(
-              onPressed: () {
-                back();
-              },
-              icon: Icon(
-                Icons.arrow_back,
+            InkWell(
+              onTap: () => back(),
+              child: Container(
+                height: 60,
+                child: Row(
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.arrow_back,
+                        ),
+                      ],
+                    ),
+                    Text('Go back')
+                  ],
+                ),
               ),
             ),
-            IconButton(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    content: Text(
-                      closeCaseText,
-                    ),
-                    actions: [
-                      IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: Icon(
-                          Icons.cancel_sharp,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () async {
-                          final SupportChat c = SupportChat.fromFireStore(
-                            await firestoreInstance
-                                .collection(
-                                  'flutter_support_chat',
-                                )
-                                .doc(id)
-                                .get(),
-                          );
-                          c.state = SupportCaseState.closed;
-                          await c.update(
-                            firestoreInstance.collection(
-                              'flutter_support_chat',
-                            ),
-                          );
-                          Navigator.pop(context);
-                          back();
-                        },
-                        icon: Icon(
-                          Icons.check,
-                        ),
-                      )
-                    ],
+            InkWell(
+              onTap: () => showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  content: Text(
+                    closeCaseText,
                   ),
-                );
-              },
-              icon: Icon(
-                Icons.close,
+                  actions: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.cancel_sharp,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () async {
+                        final SupportChat c = SupportChat.fromFireStore(
+                          await firestoreInstance
+                              .collection(
+                                'flutter_support_chat',
+                              )
+                              .doc(id)
+                              .get(),
+                        );
+                        c.state = SupportCaseState.closed;
+                        await c.update(
+                          firestoreInstance.collection(
+                            'flutter_support_chat',
+                          ),
+                        );
+                        Navigator.pop(context);
+                        back();
+                      },
+                      icon: Icon(
+                        Icons.check,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              child: Container(
+                height: 60,
+                child: Row(
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.close,
+                        ),
+                      ],
+                    ),
+                    Text('End support')
+                  ],
+                ),
               ),
             ),
           ],

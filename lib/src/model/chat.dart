@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'message.dart';
 import 'state.dart';
 
@@ -35,7 +36,7 @@ class SupportChat {
       QueryDocumentSnapshot<Map<String, dynamic>> doc) {
     return SupportChat(
       id: doc.id,
-      requesterEmail: doc.data()['email'],
+      requesterEmail: doc.data()['id'],
       createTimestamp: doc.data()['create_timestamp'],
       lastEditTimestmap: doc.data()['last_edit_timestamp'],
       messages: doc
@@ -51,7 +52,7 @@ class SupportChat {
   static SupportChat fromFireStore(DocumentSnapshot<Map<String, dynamic>> doc) {
     return SupportChat(
       id: doc.id,
-      requesterEmail: doc.data()!['email'],
+      requesterEmail: doc.data()!['id'],
       createTimestamp: doc.data()!['create_timestamp'],
       lastEditTimestmap: doc.data()!['last_edit_timestamp'],
       messages: doc
@@ -66,7 +67,7 @@ class SupportChat {
 
   Map<String, dynamic> toFireStore() {
     return {
-      'email': requesterEmail,
+      'id': requesterEmail,
       'create_timestamp': createTimestamp,
       'last_edit_timestamp': lastEditTimestmap,
       'messages': messages

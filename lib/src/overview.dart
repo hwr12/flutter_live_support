@@ -3,6 +3,9 @@ library flutter_support_chat;
 // Flutter imports:
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
+
 import 'model/chat.dart';
 import 'model/message.dart';
 import 'model/state.dart';
@@ -60,17 +63,25 @@ class FlutterSupportChatOverview extends StatefulWidget {
 class _FlutterSupportChatOverviewState
     extends State<FlutterSupportChatOverview> {
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    initializeDateFormatting(Localizations.localeOf(context).languageCode);
+  }
+
+  @override
   void initState() {
     super.initState();
     instance = widget.firestoreInstance;
     support = instance.collection(
       'flutter_support_chat',
     );
+    Intl.defaultLocale = 'en_US';
   }
 
   @override
   Widget build(BuildContext context) {
     bool isSupporter = widget.supporterID.contains(widget.currentID);
+    ;
 
     return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
       stream: isSupporter
@@ -126,8 +137,8 @@ class _FlutterSupportChatOverviewState
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  c.createTimestamp
-                                      .toDate()
+                                  DateFormat.yMMMd(Intl.defaultLocale)
+                                      .format(c.createTimestamp.toDate())
                                       .toString()
                                       .substring(0, 10),
                                 ),
