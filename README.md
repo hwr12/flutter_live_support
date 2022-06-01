@@ -1,4 +1,4 @@
-# flutter_support_chat
+# flutter_live_support
 
 Flutter package to implement a fire store chat between customer and product support
 
