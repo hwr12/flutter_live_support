@@ -22,3 +22,5 @@ dev_dependencies:
 
 false_secrets:
 - example/web/index.html
+- /example/android/app/google-services.json
+- /lib/firebase_options.dart
